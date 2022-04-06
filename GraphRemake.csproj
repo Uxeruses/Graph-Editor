@@ -11,4 +11,19 @@
     <EmbeddedResource Remove="GraphForm.pl-PL.resx" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Properties\MSGBoxResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MSGBoxResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\MSGBoxResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MSGBoxResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

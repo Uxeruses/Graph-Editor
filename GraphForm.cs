@@ -195,11 +195,15 @@ namespace Graph
                     RedrawEdges();
                     RedrawVertices();
                     Canvas.Refresh();
+                    msg = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
+                    caption = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
                     //msg = MyResources.ResourceMSG.MessageSuccessText;
                     //    caption = MyResources.ResourceMSG.MessageSuccessCaption;
                 }
                 else
                 {
+                    msg = GraphRemake.Properties.MSGBoxResource.MSG_Failure_Content;
+                    caption = GraphRemake.Properties.MSGBoxResource.MSG_Failure_Title;
                     //msg = MyResources.ResourceMSG.MessageFailureText;
                     //caption = MyResources.ResourceMSG.MessageFailureCaption;
                 }
@@ -278,6 +282,8 @@ namespace Graph
             var oldSize = Size;
             InitializeComponent();
             Size = oldSize;
+            this.KeyPreview = true;
+            buttonDelete.Enabled = true;
             ConstructForm();
         }
         private void ConstructForm()
