@@ -34,31 +34,21 @@ namespace Graph
             using Graphics g = Graphics.FromImage(backImage);
             using var tempPen = new Pen(color, penDiam);
             using var tempBrush = new SolidBrush(color);
-            g.FillEllipse(clearBrush, e.X - RADIUS, e.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
-            g.DrawEllipse(tempPen, e.X - RADIUS, e.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
-            g.DrawString(no.ToString(), textFont, tempBrush, new Point(e.X, e.Y - RADIUS + penDiam), format);
+            int xCord = e.X - RADIUS + _offset.X;
+            int yCord = e.Y - RADIUS + _offset.Y;
+            g.FillEllipse(clearBrush, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(tempPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
+            g.DrawString(no.ToString(), textFont, tempBrush, new Point(e.X + _offset.X, e.Y + _offset.Y), format);
         }
-        private void DeleteVertex(int u)
-        {
-            var temp = _gState.GetPoint(u);
-            using (Graphics g = Graphics.FromImage(backImage))
-            {
-                g.FillEllipse(Brushes.Transparent, temp.p.X - RADIUS - penDiam, temp.p.Y - RADIUS - penDiam, 2 * (RADIUS + penDiam), 2 * (RADIUS + penDiam));
-            }
-        }
-
         private void DrawEdge(int u, int v)
         {
             using (Graphics g = Graphics.FromImage(backImage))
             {
-                g.DrawLine(edgePen, _gState.GetPoint(u).p, _gState.GetPoint(v).p);
-            }
-        }
-        private void DeleteEdge(int u, int v)
-        {
-            using (Graphics g = Graphics.FromImage(backImage))
-            {
-                g.DrawLine(clearPen, _gState.GetPoint(u).p, _gState.GetPoint(v).p);
+                Point p1 = _gState.GetPoint(u).p;
+                Point p2 = _gState.GetPoint(v).p;
+                p1 = new Point(p1.X + _offset.X, p1.Y + _offset.Y);
+                p2 = new Point(p2.X + _offset.X, p2.Y + _offset.Y);
+                g.DrawLine(edgePen, p1, p2);
             }
         }
 
@@ -91,19 +81,28 @@ namespace Graph
             if (u == -1)
                 return;
             var temp = _gState.GetPoint(u);
-            using (Graphics g = Graphics.FromImage(backImage))
-            {
-                Pen dashPen = new Pen(temp.c, penDiam) { DashPattern = new float[] { dashLength, dashLength } };
-                g.FillEllipse(clearBrush, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
-                g.DrawEllipse(clearPen, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
-                g.DrawEllipse(dashPen, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
-                g.DrawString((u + 1).ToString(), textFont, new SolidBrush(temp.c), new Point(temp.p.X, temp.p.Y - RADIUS + penDiam), format);
-            }
+            using Pen dashPen = new Pen(temp.c, penDiam) { DashPattern = new float[] { dashLength, dashLength } };
+            using SolidBrush tempBrush = new SolidBrush(temp.c);
+            using Graphics g = Graphics.FromImage(backImage);
+            int xCord = temp.p.X - RADIUS + _offset.X;
+            int yCord = temp.p.Y - RADIUS + _offset.Y;
+            g.FillEllipse(clearBrush, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(clearPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(dashPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
+            g.DrawString((u + 1).ToString(), textFont, tempBrush, new Point(temp.p.X + _offset.X, temp.p.Y + _offset.Y), format);
         }
         private void UnCheck(int u)
         {
             if (u == -1) return;
             DrawVertex(u);
+        }
+
+        private void RedrawAll()
+        {
+            ResetBackground();
+            RedrawEdges();
+            RedrawVertices();
+            Canvas.Refresh();
         }
     }
 }

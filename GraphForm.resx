@@ -67,17 +67,50 @@
   <data name="groupBoxEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="comboBoxCursors.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="comboBoxCursors.Items" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="comboBoxCursors.Items1" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="comboBoxCursors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 119</value>
+  </data>
+  <data name="comboBoxCursors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="comboBoxCursors.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="comboBoxCursors.Text" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Name" xml:space="preserve">
+    <value>comboBoxCursors</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Parent" xml:space="preserve">
+    <value>groupBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonClear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonClear.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 90</value>
   </data>
   <data name="buttonClear.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonClear.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -94,7 +127,7 @@
     <value>groupBoxEdit</value>
   </data>
   <data name="&gt;&gt;buttonClear.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="buttonDelete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -124,7 +157,7 @@
     <value>groupBoxEdit</value>
   </data>
   <data name="&gt;&gt;buttonDelete.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -199,7 +232,7 @@
     <value>groupBoxEdit</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelColor" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonColor" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,70,Percent,30" /&gt;&lt;Rows Styles="Absolute,100" /&gt;&lt;/TableLayoutSettings&gt;</value>

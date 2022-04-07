@@ -44,6 +44,7 @@
             this.buttonOpen = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.Canvas = new System.Windows.Forms.PictureBox();
+            this.comboBoxCursors = new System.Windows.Forms.ComboBox();
             this.tableLayoutMain.SuspendLayout();
             this.tableLayoutRight.SuspendLayout();
             this.groupBoxEdit.SuspendLayout();
@@ -71,6 +72,7 @@
             // groupBoxEdit
             // 
             resources.ApplyResources(this.groupBoxEdit, "groupBoxEdit");
+            this.groupBoxEdit.Controls.Add(this.comboBoxCursors);
             this.groupBoxEdit.Controls.Add(this.buttonClear);
             this.groupBoxEdit.Controls.Add(this.buttonDelete);
             this.groupBoxEdit.Controls.Add(this.tableLayoutPanel1);
@@ -165,6 +167,16 @@
             this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
             this.Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseUp);
             // 
+            // comboBoxCursors
+            // 
+            resources.ApplyResources(this.comboBoxCursors, "comboBoxCursors");
+            this.comboBoxCursors.FormattingEnabled = true;
+            this.comboBoxCursors.Items.AddRange(new object[] {
+            resources.GetString("comboBoxCursors.Items"),
+            resources.GetString("comboBoxCursors.Items1")});
+            this.comboBoxCursors.Name = "comboBoxCursors";
+            this.comboBoxCursors.SelectedIndexChanged += new System.EventHandler(this.comboBoxCursors_SelectedIndexChanged);
+            // 
             // GraphForm
             // 
             resources.ApplyResources(this, "$this");
@@ -172,6 +184,7 @@
             this.Controls.Add(this.tableLayoutMain);
             this.KeyPreview = true;
             this.Name = "GraphForm";
+            this.Load += new System.EventHandler(this.GraphForm_Load);
             this.SizeChanged += new System.EventHandler(this.Form_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
             this.tableLayoutMain.ResumeLayout(false);
@@ -202,5 +215,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.ComboBox comboBoxCursors;
     }
 }

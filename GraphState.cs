@@ -15,7 +15,6 @@ namespace Graph
         private int _radius;
         private int _penDiameter;
 
-
         public int vertexNumber
         {
             get { return _vertexNumber; }
@@ -118,10 +117,11 @@ namespace Graph
         {
             _vertLocation[u] = p;
         }
-        public void Serialize(string path)
+        public void Serialize(string path, Point offset)
         {
             using (StreamWriter sw = File.CreateText(path))
             {
+                sw.WriteLine($"{offset.X},{offset.Y}");
                 for (int i = 0; i < _vertexNumber; i++)
                 {
                     sw.WriteLine($"{_vertLocation[i].X},{_vertLocation[i].Y},{_vertColor[i].ToArgb()}");
@@ -133,17 +133,29 @@ namespace Graph
                 }
             }
         }
-        public bool Deserialize(string path)
+        public bool Deserialize(string path, out Point offset)
         {
             List<Point> tempLocation = new List<Point>();
             List<Color> tempColor = new List<Color>();
             List<List<int>> tempEdges = new List<List<int>>();
-
+            offset = new Point();
             string[] lines = File.ReadAllLines(path);
             bool processEdges = false;
+            bool firstLine = true;
             foreach (var line in lines)
             {
                 var temp = line.Split(',');
+
+                if(firstLine)
+                {
+                    int x, y;
+                    if (!(int.TryParse(temp[0], out x) && int.TryParse(temp[1], out y)))
+                        return false;
+                    offset.X = x;
+                    offset.Y = y;
+                    firstLine = false;
+                    continue;
+                }
 
                 if (!processEdges)
                 {

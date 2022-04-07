@@ -95,5 +95,23 @@ namespace GraphRemake.Properties {
                 return ResourceManager.GetString("MSG_Success_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ruszaj.
+        /// </summary>
+        internal static string SEL_Cursor_Move {
+            get {
+                return ResourceManager.GetString("SEL_Cursor_Move", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wybierz.
+        /// </summary>
+        internal static string SEL_Cursor_Selecet {
+            get {
+                return ResourceManager.GetString("SEL_Cursor_Selecet", resourceCulture);
+            }
+        }
     }
 }
