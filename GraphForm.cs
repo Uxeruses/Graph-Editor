@@ -69,7 +69,10 @@ namespace Graph
             RedrawVertices();
             Canvas.Refresh();
         }
-
+        private void Canvas_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Canvas_MouseClick(sender, e);
+        }
         private void Canvas_MouseClick(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -97,7 +100,7 @@ namespace Graph
             if (_markedV != -1)
             {
                 int pos = _gState.Check(e.Location, 1);
-                if (pos != -1)
+                if (pos != -1 && pos != _markedV)
                 {
                     if (_gState.HasEdge(_markedV, pos))
                     {
@@ -283,7 +286,12 @@ namespace Graph
             InitializeComponent();
             Size = oldSize;
             this.KeyPreview = true;
-            buttonDelete.Enabled = true;
+            buttonDelete.Enabled = _markedV != -1;
+
+            // without it keyboard doesn't work :)
+            // focus has to be set on any button for keyboard to work
+            buttonColor.Focus();
+
             ConstructForm();
         }
         private void ConstructForm()
@@ -301,5 +309,7 @@ namespace Graph
                 RemoveVertex();
             }
         }
+
+
     }
 }
