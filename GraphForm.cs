@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Globalization;
-using System.Resources;
+using System.Windows.Forms;
 
 
 namespace Graph
@@ -12,17 +10,19 @@ namespace Graph
     {
         private const int RADIUS = 15;
         private const int penDiam = 3;
+        private const int fontSize = 8;
         private const float dashLength = 2;
+        // potentialy remove readonly in the future
         private readonly Font textFont;
         private readonly StringFormat format;
+        private readonly Color bcgColor;
+        private readonly Pen edgePen;
+        private readonly Pen clearPen;
+        private readonly SolidBrush clearBrush;
+        private readonly GraphState _gState;
         private Bitmap backImage;
-        private Color bcgColor;
         private Color drawColor;
-        private Pen edgePen;
         private Pen pen;
-        private Pen clearPen;
-        private SolidBrush clearBrush;
-        private GraphState _gState;
         private int _markedV;
         private Point? _lP;
 
@@ -41,8 +41,8 @@ namespace Graph
             clearPen = new Pen(bcgColor, penDiam);
             clearBrush = new SolidBrush(bcgColor);
             edgePen = new Pen(drawColor, penDiam);
-            textFont = new Font("Arial", RADIUS, FontStyle.Regular);
-            format = new StringFormat() { Alignment = StringAlignment.Center };
+            textFont = new Font("Arial", fontSize, FontStyle.Regular);
+            format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             _gState = new GraphState(RADIUS, penDiam);
             _markedV = -1;
 
@@ -150,7 +150,7 @@ namespace Graph
         }
         private void MiddleButtonControl(MouseEventArgs e)
         {
-
+            // put code here
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -200,15 +200,11 @@ namespace Graph
                     Canvas.Refresh();
                     msg = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
                     caption = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
-                    //msg = MyResources.ResourceMSG.MessageSuccessText;
-                    //    caption = MyResources.ResourceMSG.MessageSuccessCaption;
                 }
                 else
                 {
                     msg = GraphRemake.Properties.MSGBoxResource.MSG_Failure_Content;
                     caption = GraphRemake.Properties.MSGBoxResource.MSG_Failure_Title;
-                    //msg = MyResources.ResourceMSG.MessageFailureText;
-                    //caption = MyResources.ResourceMSG.MessageFailureCaption;
                 }
                 MessageBoxButtons btn = MessageBoxButtons.OK;
                 MessageBox.Show(msg, caption, btn);
@@ -249,7 +245,6 @@ namespace Graph
             _lP = null;
         }
 
-        //TODO: Repair case when user starts middleclick outside vertex
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Middle || _markedV == -1) return;
@@ -304,7 +299,7 @@ namespace Graph
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData & Keys.Delete) != 0 && _markedV != -1)
+            if (e.KeyCode == Keys.Delete && _markedV != -1)
             {
                 RemoveVertex();
             }
