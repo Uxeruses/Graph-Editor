@@ -227,6 +227,7 @@ namespace Graph
             string msg = "", caption = "";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
+                
                 Point temp;
                 if (_gState.Deserialize(fileDialog.FileName, out temp))
                 {
@@ -376,7 +377,7 @@ namespace Graph
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyData & Keys.Delete) != 0 && _markedV != -1)
+            if (e.KeyCode == Keys.Delete && _markedV != -1)
             {
                 RemoveVertex();
             }

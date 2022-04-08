@@ -32,6 +32,7 @@
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutRight = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxEdit = new System.Windows.Forms.GroupBox();
+            this.comboBoxCursors = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,7 +45,6 @@
             this.buttonOpen = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.Canvas = new System.Windows.Forms.PictureBox();
-            this.comboBoxCursors = new System.Windows.Forms.ComboBox();
             this.tableLayoutMain.SuspendLayout();
             this.tableLayoutRight.SuspendLayout();
             this.groupBoxEdit.SuspendLayout();
@@ -78,6 +78,17 @@
             this.groupBoxEdit.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxEdit.Name = "groupBoxEdit";
             this.groupBoxEdit.TabStop = false;
+            // 
+            // comboBoxCursors
+            // 
+            resources.ApplyResources(this.comboBoxCursors, "comboBoxCursors");
+            this.comboBoxCursors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCursors.FormattingEnabled = true;
+            this.comboBoxCursors.Items.AddRange(new object[] {
+            resources.GetString("comboBoxCursors.Items"),
+            resources.GetString("comboBoxCursors.Items1")});
+            this.comboBoxCursors.Name = "comboBoxCursors";
+            this.comboBoxCursors.SelectedIndexChanged += new System.EventHandler(this.comboBoxCursors_SelectedIndexChanged);
             // 
             // buttonClear
             // 
@@ -166,16 +177,6 @@
             this.Canvas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDoubleClick);
             this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
             this.Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseUp);
-            // 
-            // comboBoxCursors
-            // 
-            resources.ApplyResources(this.comboBoxCursors, "comboBoxCursors");
-            this.comboBoxCursors.FormattingEnabled = true;
-            this.comboBoxCursors.Items.AddRange(new object[] {
-            resources.GetString("comboBoxCursors.Items"),
-            resources.GetString("comboBoxCursors.Items1")});
-            this.comboBoxCursors.Name = "comboBoxCursors";
-            this.comboBoxCursors.SelectedIndexChanged += new System.EventHandler(this.comboBoxCursors_SelectedIndexChanged);
             // 
             // GraphForm
             // 
