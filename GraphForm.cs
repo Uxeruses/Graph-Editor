@@ -277,9 +277,20 @@ namespace Graph
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             this.Controls.Clear();
+            bool check = false;
+            if(WindowState == FormWindowState.Maximized)
+            {
+                check = true;
+            }
             var oldSize = Size;
             InitializeComponent();
             Size = oldSize;
+            if(check)
+            {
+                WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Maximized;
+                
+            }
             this.KeyPreview = true;
             buttonDelete.Enabled = _markedV != -1;
 
