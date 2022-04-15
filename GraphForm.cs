@@ -1,10 +1,10 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Diagnostics;
-using System.Globalization;
-using System.Resources;
+﻿using ASD.Graphs;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
+using System.Windows.Forms;
 
 
 namespace Graph
@@ -29,9 +29,65 @@ namespace Graph
         private int _comboIndex;
         private List<CursorSelect> _cursors;
         private Point _offset;
+        private IGraph<int>? _graph;
+        private StartPosition _startPosition;
+        private (int x, int y) _graphStartPostion;
+        private int _graphGapValue;
+        private bool _isDirected;
+        private int _bezierMultiply;
+        private int _arrowLength;
+        private int _arrowWidth;
 
+        public GraphForm(IGraph<double> graph) : this()
+        {
+            if(graph.Directed)
+            {
+                var temp = new DiGraph<int>(graph.VertexCount);
+                for (int i = 0; i < graph.VertexCount; i++)
+                {
+                    foreach (var edge in graph.OutEdges(i))
+                    {
+                        temp.AddEdge(edge.From, edge.To, (int)edge.weight);
+                    }
+                }
+                _graph = temp;
+                _isDirected = true;
+            }
+            else
+            {
+                var temp = new Graph<int>(graph.VertexCount);
+                for (int i = 0; i < graph.VertexCount; i++)
+                {
+                    foreach (var edge in graph.OutEdges(i))
+                    {
+                        temp.AddEdge(edge.From, edge.To, (int)edge.weight);
+                    }
+                }
+                _graph = temp;
+                _isDirected=false;
+            }
+            _gState.UpdateDirect(_isDirected);
+            SetGraph();
+        }
+
+
+        public GraphForm(IGraph<int> graph) : this()
+        {
+            _graph = graph;
+            _isDirected = graph.Directed;
+            _gState.UpdateDirect(_isDirected);
+            SetGraph();
+        }
         public GraphForm()
         {
+            _arrowLength = 10;
+            _arrowWidth = 20;
+            _bezierMultiply = 3;
+            
+            _graphStartPostion = (50, 50);
+            _graphGapValue = 100;
+            _startPosition = Graph.StartPosition.Square;
+            _graph = null;
             _cursors = new List<CursorSelect>();
             _cursors.Add(new CursorSelect(Cursors.Cross, 0));
             _cursors.Add(new CursorSelect(Cursors.NoMove2D, 1));
@@ -50,9 +106,9 @@ namespace Graph
             clearBrush = new SolidBrush(bcgColor);
             edgePen = new Pen(drawColor, penDiam);
             textFont = new Font("Arial", RADIUS, FontStyle.Regular);
-            format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment=StringAlignment.Center};
-            _gState = new GraphState(RADIUS, penDiam);
-            
+            format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            _gState = new GraphState(RADIUS, penDiam, _isDirected);
+
             _markedV = -1;
             _comboIndex = 0;
             _offset = new Point(0, 0);
@@ -62,6 +118,46 @@ namespace Graph
                 g.Clear(bcgColor);
             }
             ConstructForm();
+        }
+
+        private void SetGraph()
+        {
+            if (_graph == null) return;
+            int n = _graph.VertexCount;
+            switch (_startPosition)
+            {
+                case Graph.StartPosition.Square:
+                    {
+                        Point p = new Point(_graphStartPostion.x, _graphStartPostion.y);
+
+                        int size = (int)Math.Ceiling(Math.Sqrt(n));
+
+                        for (int i = 0; i < n; i++)
+                        {
+                            _gState.AddVertex(p, drawColor);
+                            if ((i + 1) % size == 0)
+                            {
+                                p.Y += _graphGapValue;
+                                p.X = _graphStartPostion.x;
+                            }
+                            else
+                            {
+                                p.X += _graphGapValue;
+                            }
+                        }
+                        break;
+                    }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                foreach (var neigh in _graph.OutNeighbors(i))
+                {
+                    _gState.AddEdge(i, neigh, _graph.GetEdgeWeight(i, neigh));
+                }
+
+            }
+
+            RedrawAll();
         }
 
         private void Form_SizeChanged(object sender, EventArgs e)
@@ -86,7 +182,7 @@ namespace Graph
         }
         private void Canvas_MouseClick(object sender, MouseEventArgs e)
         {
-            switch(_comboIndex)
+            switch (_comboIndex)
             {
                 case 0:
                     {
@@ -112,7 +208,7 @@ namespace Graph
                     }
                 case 1:
                     {
-                        switch(e.Button)
+                        switch (e.Button)
                         {
                             case MouseButtons.Left:
                                 {
@@ -227,7 +323,7 @@ namespace Graph
             string msg = "", caption = "";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                
+
                 Point temp;
                 if (_gState.Deserialize(fileDialog.FileName, out temp))
                 {
@@ -289,7 +385,7 @@ namespace Graph
         //TODO: Repair case when user starts middleclick outside vertex
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
-            switch(_comboIndex)
+            switch (_comboIndex)
             {
                 case 0:
                     {
@@ -327,7 +423,6 @@ namespace Graph
             int dx = e.Location.X - _lP.Value.X;
             int dy = e.Location.Y - _lP.Value.Y;
             _offset = new Point(_offset.X + dx, _offset.Y + dy);
-            Debug.WriteLine(_offset);
             _lP = e.Location;
             RedrawAll();
         }
@@ -398,8 +493,9 @@ namespace Graph
             private int _id;
             public string Name
             {
-                get {
-                    switch(_id)
+                get
+                {
+                    switch (_id)
                     {
                         case 0:
                             return GraphRemake.Properties.MSGBoxResource.SEL_Cursor_Selecet;

@@ -14,12 +14,14 @@ namespace Graph
         private List<List<int>> _edges;
         private int _radius;
         private int _penDiameter;
+        private bool _isDirected;
+        private int?[,] _weights;
 
         public int vertexNumber
         {
             get { return _vertexNumber; }
         }
-        public GraphState(int radius, int penDiameter)
+        public GraphState(int radius, int penDiameter, bool isDirected)
         {
             _radius = radius;
             _penDiameter = penDiameter;
@@ -27,12 +29,32 @@ namespace Graph
             _vertColor = new List<Color>();
             _edges = new List<List<int>>();
             _vertexNumber = 0;
+            _isDirected = isDirected;
+            _weights = new int?[0,0];
         }
+
+        public void UpdateDirect(bool isDirected)
+        {
+            _isDirected = isDirected;
+        }
+        public void AddEdge(int u, int v, int weight)
+        {
+            AddEdge(u, v);
+            if(!_isDirected)
+            {
+                _weights[v, u] = weight;
+            }
+            _weights[u, v] = weight;
+        }
+
         public void AddEdge(int u, int v)
         {
             if (_vertexNumber < u || _vertexNumber < v) throw new IndexOutOfRangeException();
             _edges[u].Add(v);
-            _edges[v].Add(u);
+            if(!_isDirected)
+            {
+                _edges[v].Add(u);
+            }
         }
 
         public void RemoveEdge(int u, int v)
@@ -40,6 +62,8 @@ namespace Graph
             if (_vertexNumber < u || _vertexNumber < v) throw new IndexOutOfRangeException();
             _edges[u].Remove(v);
             _edges[v].Remove(u);
+            _weights[u, v] = null;
+            _weights[v, u] = null;
         }
 
         public bool HasEdge(int u, int v)
@@ -56,19 +80,58 @@ namespace Graph
             _vertLocation.Add(p);
             _vertColor.Add(c);
             _edges.Add(new List<int>());
+            IncreaseWeightsSize();
             _vertexNumber++;
             return true;
         }
+
+        private void IncreaseWeightsSize()
+        {
+            int?[,] tempWeights = new int?[_vertexNumber + 1, _vertexNumber + 1];
+            for(int i = 0; i < _vertexNumber; i++)
+            {
+                for(int j = 0; j < _vertexNumber; j++)
+                {
+                    tempWeights[i, j] = _weights[i, j];
+                }
+            }
+            _weights = tempWeights;
+        }
+
+        private void DecreaseWeightsSize(int u)
+        {
+            int?[,] tempWeights = new int?[_vertexNumber - 1, _vertexNumber - 1];
+            for (int i = 0; i < _vertexNumber; i++)
+            {
+                if (i == u)
+                    continue;
+                for (int j = 0; j < _vertexNumber; j++)
+                {
+                    if (j == u)
+                        continue;
+                    tempWeights[i > u ? i - 1: i, j > u ? j - 1 : j] = _weights[i, j];
+                }
+            }
+            _weights = tempWeights;
+        }
+
+        public int? GetWeight(int u, int v)
+        {
+            return _weights[u, v];
+        }
+
         public void RemoveVertex(int u)
         {
             _vertLocation.RemoveAt(u);
             _vertColor.RemoveAt(u);
-            foreach (var v in _edges[u])
+            var temp = _edges[u].ToArray();
+            foreach(var v in temp)
             {
-                _edges[v].Remove(u);
-
+                RemoveEdge(u, v);
             }
+
             _edges.RemoveAt(u);
+            DecreaseWeightsSize(u);
             _vertexNumber--;
             for (int v = 0; v < vertexNumber; v++)
             {
@@ -84,20 +147,32 @@ namespace Graph
             return (_vertLocation[u], _vertColor[u]);
         }
 
-        public List<(int u, int v)> GetEdges()
+        public List<(int u, int v, int? weight)> GetEdges()
         {
-            List<(int u, int v)> edges = new List<(int u, int v)>();
+            List<(int u, int v, int? weight)> edges = new List<(int u, int v, int? weight)>();
+            if(!_isDirected)
+            {
+                for (int u = 0; u < _vertexNumber; u++)
+                {
+                    foreach (var v in _edges[u])
+                    {
+                        if (u < v)
+                            edges.Add((u, v, _weights[u, v]));
+                        else
+                            edges.Add((v, u, _weights[u, v]));
+                    }
+                }
+                return edges.Distinct().ToList();
+            }
             for (int u = 0; u < _vertexNumber; u++)
             {
                 foreach (var v in _edges[u])
                 {
-                    if (u < v)
-                        edges.Add((u, v));
-                    else
-                        edges.Add((v, u));
+                    edges.Add((u, v, _weights[u, v]));
                 }
             }
             return edges.Distinct().ToList();
+
         }
         public List<int> GetNeighbors(int u)
         {
@@ -146,7 +221,7 @@ namespace Graph
             {
                 var temp = line.Split(',');
 
-                if(firstLine)
+                if (firstLine)
                 {
                     int x, y;
                     if (!(int.TryParse(temp[0], out x) && int.TryParse(temp[1], out y)))
