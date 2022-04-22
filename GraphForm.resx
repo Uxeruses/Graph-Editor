@@ -57,194 +57,332 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tableLayoutMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>772, 549</value>
-  </data>
-  <data name="comboBoxCursors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 119</value>
-  </data>
-  <data name="buttonColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonClear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;Canvas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutRight.Name" xml:space="preserve">
-    <value>tableLayoutRight</value>
-  </data>
-  <data name="buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 23</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="groupBoxIE.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>groupBoxEdit</value>
-  </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
-  </data>
-  <data name="buttonPolish.Text" xml:space="preserve">
-    <value>Polski</value>
-  </data>
-  <data name="&gt;&gt;buttonDelete.Parent" xml:space="preserve">
-    <value>groupBoxEdit</value>
-  </data>
-  <data name="groupBoxLang.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBoxIE.Name" xml:space="preserve">
-    <value>groupBoxIE</value>
-  </data>
-  <data name="&gt;&gt;Canvas.Name" xml:space="preserve">
-    <value>Canvas</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutRight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBoxEdit.Name" xml:space="preserve">
-    <value>groupBoxEdit</value>
-  </data>
-  <data name="&gt;&gt;buttonDelete.Name" xml:space="preserve">
-    <value>buttonDelete</value>
-  </data>
-  <data name="buttonColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonOpen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 58</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutMain.Name" xml:space="preserve">
-    <value>tableLayoutMain</value>
-  </data>
-  <data name="&gt;&gt;groupBoxLang.Parent" xml:space="preserve">
-    <value>tableLayoutRight</value>
-  </data>
-  <data name="&gt;&gt;Canvas.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonOpen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 30</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutMain.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupBoxEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="tableLayoutMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="buttonEnglish.Text" xml:space="preserve">
-    <value>Angielski</value>
-  </data>
-  <data name="&gt;&gt;buttonPolish.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 24</value>
-  </data>
-  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonDelete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 30</value>
-  </data>
-  <data name="buttonEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 58</value>
-  </data>
-  <data name="buttonColor.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonOpen.Text" xml:space="preserve">
-    <value>Wczytaj</value>
-  </data>
-  <data name="buttonColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="panelColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 23</value>
   </data>
   <data name="tableLayoutRight.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;groupBoxLang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBoxEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="groupBoxLang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="comboBoxCursors.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="comboBoxCursors.Items" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="comboBoxCursors.Items1" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="comboBoxCursors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 119</value>
+  </data>
+  <data name="comboBoxCursors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="comboBoxCursors.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Name" xml:space="preserve">
+    <value>comboBoxCursors</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.Parent" xml:space="preserve">
+    <value>groupBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCursors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonClear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="buttonClear.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="panelColor.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="buttonClear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 90</value>
   </data>
-  <data name="&gt;&gt;Canvas.Parent" xml:space="preserve">
-    <value>tableLayoutMain</value>
+  <data name="buttonClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
   </data>
-  <data name="groupBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 337</value>
+  <data name="buttonClear.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;buttonDelete.Type" xml:space="preserve">
+  <data name="buttonClear.Text" xml:space="preserve">
+    <value>Wyczyść graf</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.Name" xml:space="preserve">
+    <value>buttonClear</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tableLayoutMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="comboBoxCursors.Items" xml:space="preserve">
-    <value>Select</value>
-  </data>
-  <data name="comboBoxCursors.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBoxIE.Text" xml:space="preserve">
-    <value>Import/Eksport</value>
-  </data>
-  <data name="buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 61</value>
-  </data>
-  <data name="buttonEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 30</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutRight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonPolish.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 31</value>
+  <data name="&gt;&gt;buttonClear.Parent" xml:space="preserve">
+    <value>groupBoxEdit</value>
   </data>
   <data name="&gt;&gt;buttonClear.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;buttonEnglish.Name" xml:space="preserve">
-    <value>buttonEnglish</value>
+  <data name="buttonDelete.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonDelete.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonDelete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 61</value>
+  </data>
+  <data name="buttonDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
+  </data>
+  <data name="buttonDelete.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonDelete.Text" xml:space="preserve">
+    <value>Usuń wierzchołek</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.Name" xml:space="preserve">
+    <value>buttonDelete</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDelete.Parent" xml:space="preserve">
+    <value>groupBoxEdit</value>
   </data>
   <data name="&gt;&gt;buttonDelete.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="buttonClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 90</value>
+  <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="panelColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="panelColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 3</value>
+  </data>
+  <data name="panelColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 23</value>
+  </data>
+  <data name="panelColor.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panelColor.Name" xml:space="preserve">
+    <value>panelColor</value>
+  </data>
+  <data name="&gt;&gt;panelColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelColor.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;panelColor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="buttonColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 23</value>
+  </data>
+  <data name="buttonColor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonColor.Text" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="&gt;&gt;buttonColor.Name" xml:space="preserve">
+    <value>buttonColor</value>
+  </data>
+  <data name="&gt;&gt;buttonColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonColor.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;buttonColor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 31</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>groupBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelColor" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonColor" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,70,Percent,30" /&gt;&lt;Rows Styles="Absolute,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="groupBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 337</value>
+  </data>
+  <data name="groupBoxEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBoxEdit.Text" xml:space="preserve">
+    <value>Edycja</value>
+  </data>
+  <data name="&gt;&gt;groupBoxEdit.Name" xml:space="preserve">
+    <value>groupBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;groupBoxEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxEdit.Parent" xml:space="preserve">
+    <value>tableLayoutRight</value>
+  </data>
+  <data name="&gt;&gt;groupBoxEdit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBoxLang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonEnglish.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonEnglish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEnglish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 58</value>
+  </data>
+  <data name="buttonEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 30</value>
+  </data>
+  <data name="buttonEnglish.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonEnglish.Text" xml:space="preserve">
+    <value>Angielski</value>
+  </data>
+  <data name="&gt;&gt;buttonEnglish.Name" xml:space="preserve">
+    <value>buttonEnglish</value>
+  </data>
+  <data name="&gt;&gt;buttonEnglish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEnglish.Parent" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;buttonEnglish.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonPolish.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonPolish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonPolish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="buttonPolish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 30</value>
+  </data>
+  <data name="buttonPolish.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonPolish.Text" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+  <data name="&gt;&gt;buttonPolish.Name" xml:space="preserve">
+    <value>buttonPolish</value>
+  </data>
+  <data name="&gt;&gt;buttonPolish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonPolish.Parent" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;buttonPolish.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxLang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 346</value>
+  </data>
+  <data name="groupBoxLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 94</value>
+  </data>
+  <data name="groupBoxLang.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBoxLang.Text" xml:space="preserve">
+    <value>Jezyk</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Name" xml:space="preserve">
+    <value>groupBoxLang</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.Parent" xml:space="preserve">
+    <value>tableLayoutRight</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLang.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxIE.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonOpen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonOpen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonOpen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 58</value>
+  </data>
+  <data name="buttonOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 30</value>
+  </data>
+  <data name="buttonOpen.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonOpen.Text" xml:space="preserve">
+    <value>Wczytaj</value>
+  </data>
+  <data name="&gt;&gt;buttonOpen.Name" xml:space="preserve">
+    <value>buttonOpen</value>
+  </data>
+  <data name="&gt;&gt;buttonOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonOpen.Parent" xml:space="preserve">
+    <value>groupBoxIE</value>
   </data>
   <data name="&gt;&gt;buttonOpen.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -252,292 +390,154 @@
   <data name="buttonSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="buttonPolish.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;buttonColor.Name" xml:space="preserve">
-    <value>buttonColor</value>
-  </data>
-  <data name="Canvas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonPolish.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 22</value>
   </data>
-  <data name="buttonOpen.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;buttonEnglish.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="buttonOpen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;comboBoxCursors.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Canvas.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="panelColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;groupBoxIE.Parent" xml:space="preserve">
-    <value>tableLayoutRight</value>
-  </data>
-  <data name="&gt;&gt;panelColor.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="comboBoxCursors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 23</value>
-  </data>
-  <data name="buttonPolish.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 30</value>
   </data>
-  <data name="&gt;&gt;tableLayoutMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="tableLayoutMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="Canvas.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBoxIE.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonDelete.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="tableLayoutRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>620, 3</value>
-  </data>
-  <data name="tableLayoutMain.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Canvas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>611, 543</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="&gt;&gt;panelColor.Name" xml:space="preserve">
-    <value>panelColor</value>
-  </data>
-  <data name="&gt;&gt;buttonClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
-  </data>
-  <data name="buttonClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 23</value>
-  </data>
-  <data name="&gt;&gt;buttonPolish.Parent" xml:space="preserve">
-    <value>groupBoxLang</value>
+  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="buttonSave.Text" xml:space="preserve">
     <value>Zapisz</value>
   </data>
-  <data name="&gt;&gt;groupBoxLang.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
+    <value>buttonSave</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
+    <value>groupBoxIE</value>
+  </data>
+  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;buttonOpen.Name" xml:space="preserve">
-    <value>buttonOpen</value>
+  <data name="groupBoxIE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 446</value>
   </data>
-  <data name="buttonEnglish.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="groupBoxIE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 94</value>
   </data>
-  <data name="&gt;&gt;buttonPolish.Name" xml:space="preserve">
-    <value>buttonPolish</value>
+  <data name="groupBoxIE.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;buttonEnglish.Parent" xml:space="preserve">
-    <value>groupBoxLang</value>
+  <data name="groupBoxIE.Text" xml:space="preserve">
+    <value>Import/Eksport</value>
   </data>
-  <data name="tableLayoutMain.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutRight" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Canvas" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,80,Percent,20" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="groupBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonPolish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonEnglish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonClear.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;buttonClear.Name" xml:space="preserve">
-    <value>buttonClear</value>
-  </data>
-  <data name="&gt;&gt;buttonOpen.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBoxIE.Name" xml:space="preserve">
     <value>groupBoxIE</value>
   </data>
   <data name="&gt;&gt;groupBoxIE.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboBoxCursors.Parent" xml:space="preserve">
-    <value>groupBoxEdit</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
-    <value>buttonSave</value>
-  </data>
-  <data name="groupBoxLang.Text" xml:space="preserve">
-    <value>Jezyk</value>
-  </data>
-  <data name="groupBoxIE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 446</value>
-  </data>
-  <data name="&gt;&gt;groupBoxEdit.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBoxIE.Parent" xml:space="preserve">
     <value>tableLayoutRight</value>
-  </data>
-  <data name="Canvas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tableLayoutMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;groupBoxEdit.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonColor.Text" xml:space="preserve">
-    <value>Kolor</value>
-  </data>
-  <data name="buttonDelete.Text" xml:space="preserve">
-    <value>Usuń wierzchołek</value>
-  </data>
-  <data name="groupBoxIE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 94</value>
-  </data>
-  <data name="tableLayoutRight.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;groupBoxIE.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;buttonClear.Parent" xml:space="preserve">
-    <value>groupBoxEdit</value>
-  </data>
-  <data name="&gt;&gt;buttonColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tableLayoutRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 543</value>
-  </data>
-  <data name="tableLayoutRight.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBoxEdit" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxLang" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxIE" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100,Absolute,100,Absolute,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="buttonEnglish.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
-    <value>groupBoxIE</value>
-  </data>
-  <data name="groupBoxLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 94</value>
-  </data>
-  <data name="&gt;&gt;buttonPolish.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="groupBoxLang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 346</value>
-  </data>
-  <data name="groupBoxEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 23</value>
-  </data>
-  <data name="&gt;&gt;buttonOpen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tableLayoutRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>620, 3</value>
   </data>
   <data name="tableLayoutRight.RowCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
+  <data name="tableLayoutRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 543</value>
+  </data>
+  <data name="tableLayoutRight.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutRight.Name" xml:space="preserve">
+    <value>tableLayoutRight</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutRight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tableLayoutRight.Parent" xml:space="preserve">
     <value>tableLayoutMain</value>
   </data>
-  <data name="&gt;&gt;groupBoxEdit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tableLayoutRight.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBoxLang.Name" xml:space="preserve">
-    <value>groupBoxLang</value>
+  <data name="tableLayoutRight.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBoxEdit" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxLang" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBoxIE" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100,Absolute,100,Absolute,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>GraphForm</value>
+  <data name="Canvas.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;comboBoxCursors.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="panelColor" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="buttonColor" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,70,Percent,30" /&gt;&lt;Rows Styles="Absolute,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="groupBoxEdit.Text" xml:space="preserve">
-    <value>Edycja</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panelColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 3</value>
-  </data>
-  <data name="comboBoxCursors.Items1" xml:space="preserve">
-    <value>Move</value>
-  </data>
-  <data name="buttonClear.Text" xml:space="preserve">
-    <value>Wyczyść graf</value>
-  </data>
-  <data name="&gt;&gt;buttonColor.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;comboBoxCursors.Name" xml:space="preserve">
-    <value>comboBoxCursors</value>
-  </data>
-  <data name="buttonSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Canvas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;buttonEnglish.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Canvas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="buttonDelete.TabIndex" type="System.Int32, mscorlib">
+  <data name="Canvas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>611, 543</value>
+  </data>
+  <data name="Canvas.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 600</value>
+  <data name="&gt;&gt;Canvas.Name" xml:space="preserve">
+    <value>Canvas</value>
   </data>
-  <data name="&gt;&gt;buttonColor.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Canvas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Canvas.Parent" xml:space="preserve">
+    <value>tableLayoutMain</value>
+  </data>
+  <data name="&gt;&gt;Canvas.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;panelColor.ZOrder" xml:space="preserve">
+  <data name="tableLayoutMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>772, 549</value>
+  </data>
+  <data name="tableLayoutMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="comboBoxCursors.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;tableLayoutMain.Name" xml:space="preserve">
+    <value>tableLayoutMain</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutMain.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutRight" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Canvas" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,80,Percent,20" /&gt;&lt;Rows Styles="Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 561</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 600</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edytor grafów</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>GraphForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

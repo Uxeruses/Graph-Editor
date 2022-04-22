@@ -85,7 +85,7 @@ namespace Graph
             _bezierMultiply = 3;
             
             _graphStartPostion = (50, 50);
-            _graphGapValue = 100;
+            _graphGapValue = 150;
             _startPosition = Graph.StartPosition.Square;
             _graph = null;
             _cursors = new List<CursorSelect>();

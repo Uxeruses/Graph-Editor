@@ -97,7 +97,7 @@ namespace Graph
                 g.FillRectangle(clearBrush, rect);
                 g.DrawString(tempWeight.ToString(), textFont, tempBrush, med, format);
             }
- 
+
 
             //Draw vu weight
             tempWeight = _gState.GetWeight(v, u);
