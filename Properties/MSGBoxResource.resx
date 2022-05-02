@@ -129,4 +129,13 @@
   <data name="MSG_Success_Title" xml:space="preserve">
     <value>Plik załadowany</value>
   </data>
+  <data name="SEL_Add_Weight" xml:space="preserve">
+    <value>Zmień wagę</value>
+  </data>
+  <data name="SEL_Cursor_Move" xml:space="preserve">
+    <value>Ruszaj</value>
+  </data>
+  <data name="SEL_Cursor_Selecet" xml:space="preserve">
+    <value>Wybierz</value>
+  </data>
 </root>

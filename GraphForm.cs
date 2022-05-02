@@ -1,3 +1,7 @@
+﻿using ASD.Graphs;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 ﻿using System;
 using System.Drawing;
 using System.Globalization;
@@ -25,9 +29,35 @@ namespace Graph
         private Pen pen;
         private int _markedV;
         private Point? _lP;
+        private int _comboIndex;
+        private List<CursorSelect> _cursors;
+        private Point _offset;
+        private StartPosition _startPosition;
+        private (int x, int y) _graphStartPostion;
+        private int _graphGapValue;
+        private bool _isDirected;
+        private int _bezierMultiply;
+        private int _arrowLength;
+        private int _arrowWidth;
+        private int?[] _edgePoints;
 
         public GraphForm()
         {
+            _arrowLength = 10;
+            _arrowWidth = 20;
+            _bezierMultiply = 3;
+            
+            _graphStartPostion = (50, 50);
+            _graphGapValue = 150;
+            _edgePoints = new int?[2];
+            _isDirected = false;
+            _startPosition = Graph.StartPosition.Square;
+
+            _cursors = new List<CursorSelect>();
+            _cursors.Add(new CursorSelect(Cursors.Cross, 0));
+            _cursors.Add(new CursorSelect(Cursors.NoMove2D, 1));
+            _cursors.Add(new CursorSelect(Cursors.Default, 2));
+
             var culture = new CultureInfo("pl-PL");
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
@@ -41,10 +71,15 @@ namespace Graph
             clearPen = new Pen(bcgColor, penDiam);
             clearBrush = new SolidBrush(bcgColor);
             edgePen = new Pen(drawColor, penDiam);
+            textFont = new Font("Arial", RADIUS, FontStyle.Regular);
+            format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            _gState = new GraphState(RADIUS, penDiam, _isDirected);
             textFont = new Font("Arial", fontSize, FontStyle.Regular);
             format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             _gState = new GraphState(RADIUS, penDiam);
             _markedV = -1;
+            _comboIndex = 0;
+            _offset = new Point(0, 0);
 
             using (Graphics g = Graphics.FromImage(backImage))
             {
@@ -75,31 +110,102 @@ namespace Graph
         }
         private void Canvas_MouseClick(object sender, MouseEventArgs e)
         {
-            switch (e.Button)
+            switch (_comboIndex)
             {
-                case MouseButtons.Left:
+                case 0:
                     {
-                        LeftButtonControl(e);
+                        switch (e.Button)
+                        {
+                            case MouseButtons.Left:
+                                {
+                                    LeftButtonControl(e);
+                                    break;
+                                }
+                            case MouseButtons.Right:
+                                {
+                                    RightButtonControl(e);
+                                    break;
+                                }
+                            case MouseButtons.Middle:
+                                {
+                                    MiddleButtonControl(e);
+                                    break;
+                                }
+                        }
                         break;
                     }
-                case MouseButtons.Right:
+                case 1:
                     {
-                        RightButtonControl(e);
+                        switch (e.Button)
+                        {
+                            case MouseButtons.Left:
+                                {
+                                    MoveBitMap(e);
+                                    break;
+                                }
+                        }
                         break;
                     }
-                case MouseButtons.Middle:
+                case 2:
                     {
-                        MiddleButtonControl(e);
+                        switch(e.Button)
+                        {
+                            case MouseButtons.Right:
+                                {
+                                    ControlEdgeWeight(e);
+                                    break;
+                                }
+                        }
                         break;
                     }
             }
+
+        }
+
+        private void ControlEdgeWeight(MouseEventArgs e)
+        {
+            UnCheck(_markedV);
+            _markedV = -1;
+            Point calibrated = new Point(e.Location.X - _offset.X, e.Location.Y - _offset.Y);
+            int toCheck = _gState.Check(calibrated, 1);
+            if (toCheck == -1)
+                return;
+            if (_edgePoints[0] == null)
+            {
+                _edgePoints[0] = toCheck;
+                Check(toCheck);
+            }
+            else if(_edgePoints[1] == null && toCheck != _edgePoints[0])
+            {
+                if (!_gState.HasEdge((int)_edgePoints[0], toCheck))
+                    return;
+                _edgePoints[1] = toCheck;
+                Check(toCheck);
+                confirmEdgeWeight.Enabled = true;
+                weightNumBox.Enabled = true;
+            }
+            else if(_edgePoints[1] != null && toCheck != _edgePoints[1])
+            {
+                UnCheck(_edgePoints[0]);
+                _edgePoints[0] = _edgePoints[1];
+                _edgePoints[1] = toCheck;
+                Check(_edgePoints[1]);
+            }
+            Canvas.Refresh();
+        }
+        
+
+        private void MoveBitMap(MouseEventArgs e)
+        {
         }
 
         private void LeftButtonControl(MouseEventArgs e)
         {
+            Point calibrated = new Point(e.Location.X - _offset.X, e.Location.Y - _offset.Y);
+
             if (_markedV != -1)
             {
-                int pos = _gState.Check(e.Location, 1);
+                int pos = _gState.Check(calibrated, 1);
                 if (pos != -1 && pos != _markedV)
                 {
                     if (_gState.HasEdge(_markedV, pos))
@@ -111,22 +217,20 @@ namespace Graph
                     {
                         _gState.AddEdge(_markedV, pos);
                     }
-                    ResetBackground();
-                    RedrawEdges();
-                    RedrawVertices();
-                    Canvas.Refresh();
+                    RedrawAll();
                     return;
                 }
             }
 
-            if (!_gState.AddVertex(e.Location, drawColor)) return;
+            if (!_gState.AddVertex(calibrated, drawColor)) return;
 
-            DrawVertex(e.Location, _gState.vertexNumber, drawColor);
+            DrawVertex(_gState.vertexNumber - 1);
             Canvas.Refresh();
         }
         private void RightButtonControl(MouseEventArgs e)
         {
-            int toCheck = _gState.Check(e.Location, 1);
+            Point calibrated = new Point(e.Location.X - _offset.X, e.Location.Y - _offset.Y);
+            int toCheck = _gState.Check(calibrated, 1);
 
             if (toCheck == -1)
             {
@@ -150,7 +254,6 @@ namespace Graph
         }
         private void MiddleButtonControl(MouseEventArgs e)
         {
-            // put code here
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -179,7 +282,7 @@ namespace Graph
             fileDialog.Filter = "Graph files (*.graph)|*.graph";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                _gState.Serialize(fileDialog.FileName);
+                _gState.Serialize(fileDialog.FileName, _offset);
             }
         }
 
@@ -190,8 +293,20 @@ namespace Graph
             string msg = "", caption = "";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (_gState.Deserialize(fileDialog.FileName))
+
+                Point temp = new Point(0, 0);
+                bool control;
+                try
                 {
+                    control = _gState.Deserialize(fileDialog.FileName, out temp);
+                }
+                catch (Exception)
+                {
+                    control=false;
+                }
+                if (control)
+                {
+                    _offset = temp;
                     _markedV = -1;
                     buttonDelete.Enabled = false;
                     ResetBackground();
@@ -199,7 +314,7 @@ namespace Graph
                     RedrawVertices();
                     Canvas.Refresh();
                     msg = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
-                    caption = GraphRemake.Properties.MSGBoxResource.MSG_Success_Content;
+                    caption = GraphRemake.Properties.MSGBoxResource.MSG_Success_Title;
                 }
                 else
                 {
@@ -217,6 +332,7 @@ namespace Graph
             {
                 g.Clear(bcgColor);
             }
+            _offset = new Point(0, 0);
             _markedV = -1;
             buttonDelete.Enabled = false;
             _gState.Reset();
@@ -247,6 +363,23 @@ namespace Graph
 
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
+            switch (_comboIndex)
+            {
+                case 0:
+                    {
+                        MouseMoveSelect(e);
+                        break;
+                    }
+                case 1:
+                    {
+                        MouseMoveMove(e);
+                        break;
+                    }
+            }
+        }
+
+        private void MouseMoveSelect(MouseEventArgs e)
+        {
             if (e.Button != MouseButtons.Middle || _markedV == -1) return;
             if (_lP == null)
             {
@@ -255,10 +388,21 @@ namespace Graph
             }
             _gState.UpdatePosition(_markedV, e.Location.X - _lP.Value.X, e.Location.Y - _lP.Value.Y);
             _lP = e.Location;
-            ResetBackground();
-            RedrawEdges();
-            RedrawVertices();
-            Canvas.Refresh();
+            RedrawAll();
+        }
+        private void MouseMoveMove(MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            if (_lP == null)
+            {
+                _lP = e.Location;
+                return;
+            }
+            int dx = e.Location.X - _lP.Value.X;
+            int dy = e.Location.Y - _lP.Value.Y;
+            _offset = new Point(_offset.X + dx, _offset.Y + dy);
+            _lP = e.Location;
+            RedrawAll();
         }
 
         private void buttonPolish_Click(object sender, EventArgs e)
@@ -293,6 +437,7 @@ namespace Graph
             }
             this.KeyPreview = true;
             buttonDelete.Enabled = _markedV != -1;
+            Canvas.Cursor = _cursors[_comboIndex].Cursor;
 
             // without it keyboard doesn't work :)
             // focus has to be set on any button for keyboard to work
@@ -302,6 +447,12 @@ namespace Graph
         }
         private void ConstructForm()
         {
+            comboBoxCursors.DataSource = _cursors;
+            comboBoxCursors.SelectedIndex = _comboIndex;
+            comboBoxCursors.DisplayMember = "Name";
+            comboBoxCursors.ValueMember = "Cursor";
+            comboBoxCursors.Text = _cursors[_comboIndex].Name;
+
             panelColor.BackColor = drawColor;
             Canvas.Image = backImage;
             Canvas.Refresh();
@@ -314,8 +465,64 @@ namespace Graph
             {
                 RemoveVertex();
             }
+
         }
 
+        private void GraphForm_Load(object sender, EventArgs e)
+        {
+        }
 
+        private class CursorSelect
+        {
+            private Cursor _cursor;
+            public Cursor Cursor
+            {
+                get { return _cursor; }
+            }
+            private int _id;
+            public string Name
+            {
+                get
+                {
+                    switch (_id)
+                    {
+                        case 0:
+                            return GraphRemake.Properties.MSGBoxResource.SEL_Cursor_Selecet;
+                        case 1:
+                            return GraphRemake.Properties.MSGBoxResource.SEL_Cursor_Move;
+                        case 2:
+                            return GraphRemake.Properties.MSGBoxResource.SEL_Add_Weight;
+                    }
+                    return string.Empty;
+                }
+            }
+            public CursorSelect(Cursor cursor, int id)
+            {
+                _cursor = cursor;
+                _id = id;
+            }
+        }
+
+        private void comboBoxCursors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var cursor = (CursorSelect)comboBoxCursors.SelectedItem;
+            if(comboBoxCursors.SelectedIndex == 2)
+            {
+                _markedV = -1;
+                RedrawAll();
+            }
+            Canvas.Cursor = cursor.Cursor;
+            _comboIndex = comboBoxCursors.SelectedIndex;
+        }
+
+        private void confirmEdgeWeight_Click(object sender, EventArgs e)
+        {
+            _gState.ChangeWeight((int)_edgePoints[0], (int)_edgePoints[1], (int)weightNumBox.Value);
+            _edgePoints[0] = null;
+            _edgePoints[1] = null;
+            confirmEdgeWeight.Enabled = false;
+            weightNumBox.Enabled = false;
+            RedrawAll();
+        }
     }
 }

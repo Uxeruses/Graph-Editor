@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="WinForms_Home_Brzoskowskij.zip" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\MSGBoxResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
