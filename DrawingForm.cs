@@ -48,6 +48,11 @@ namespace Graph
             Rectangle rect = new Rectangle(new Point(med.X - sizeOfText.Width / 2, med.Y - sizeOfText.Height / 2), sizeOfText);
             g.FillRectangle(clearBrush, rect);
             g.DrawString(tempWeight.ToString(), textFont, tempBrush, med, format);
+
+            g.FillEllipse(clearBrush, e.X - RADIUS, e.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(tempPen, e.X - RADIUS, e.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
+            g.DrawString(no.ToString(), textFont, tempBrush, new Point(e.X, e.Y), format);
+
         }
 
         private void DrawDirectedEdge(int u, int v)
@@ -58,6 +63,7 @@ namespace Graph
         private void DrawBiEdge(int u, int v)
         {
             using Graphics g = Graphics.FromImage(backImage);
+
             Point p1 = _gState.GetPoint(u).p;
             Point p2 = _gState.GetPoint(v).p;
             double off = _bezierMultiply * Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
@@ -163,6 +169,9 @@ namespace Graph
             g.DrawPolygon(edgePen, pts);
             using SolidBrush tempBrush = new SolidBrush(edgePen.Color);
             g.FillPolygon(tempBrush, pts);
+
+            g.DrawLine(edgePen, _gState.GetPoint(u).p, _gState.GetPoint(v).p);
+
         }
 
         private void RedrawEdges()
@@ -205,6 +214,7 @@ namespace Graph
         {
             if (u == -1 || u == null)
                 return;
+
             var temp = _gState.GetPoint((int)u);
             using Pen dashPen = new Pen(temp.c, penDiam) { DashPattern = new float[] { dashLength, dashLength } };
             using SolidBrush tempBrush = new SolidBrush(temp.c);
@@ -215,6 +225,16 @@ namespace Graph
             g.DrawEllipse(clearPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
             g.DrawEllipse(dashPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
             g.DrawString(u.ToString(), textFont, tempBrush, new Point(temp.p.X + _offset.X, temp.p.Y + _offset.Y), format);
+
+            var temp = _gState.GetPoint(u);
+            using Graphics g = Graphics.FromImage(backImage);
+            using Pen dashPen = new Pen(temp.c, penDiam) { DashPattern = new float[] { dashLength, dashLength } };
+            using SolidBrush tempBrush = new SolidBrush(temp.c);
+            g.FillEllipse(clearBrush, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(clearPen, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
+            g.DrawEllipse(dashPen, temp.p.X - RADIUS, temp.p.Y - RADIUS, 2 * RADIUS, 2 * RADIUS);
+            g.DrawString((u + 1).ToString(), textFont, tempBrush, new Point(temp.p.X, temp.p.Y), format);
+
         }
         private void UnCheck(int? u)
         {

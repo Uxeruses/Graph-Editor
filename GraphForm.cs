@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+﻿using System;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
@@ -13,17 +14,19 @@ namespace Graph
     {
         private const int RADIUS = 15;
         private const int penDiam = 3;
+        private const int fontSize = 8;
         private const float dashLength = 2;
+        // potentialy remove readonly in the future
         private readonly Font textFont;
         private readonly StringFormat format;
+        private readonly Color bcgColor;
+        private readonly Pen edgePen;
+        private readonly Pen clearPen;
+        private readonly SolidBrush clearBrush;
+        private readonly GraphState _gState;
         private Bitmap backImage;
-        private Color bcgColor;
         private Color drawColor;
-        private Pen edgePen;
         private Pen pen;
-        private Pen clearPen;
-        private SolidBrush clearBrush;
-        private GraphState _gState;
         private int _markedV;
         private Point? _lP;
         private int _comboIndex;
@@ -71,7 +74,9 @@ namespace Graph
             textFont = new Font("Arial", RADIUS, FontStyle.Regular);
             format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
             _gState = new GraphState(RADIUS, penDiam, _isDirected);
-
+            textFont = new Font("Arial", fontSize, FontStyle.Regular);
+            format = new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            _gState = new GraphState(RADIUS, penDiam);
             _markedV = -1;
             _comboIndex = 0;
             _offset = new Point(0, 0);
@@ -416,9 +421,20 @@ namespace Graph
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
             this.Controls.Clear();
+            bool check = false;
+            if(WindowState == FormWindowState.Maximized)
+            {
+                check = true;
+            }
             var oldSize = Size;
             InitializeComponent();
             Size = oldSize;
+            if(check)
+            {
+                WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Maximized;
+                
+            }
             this.KeyPreview = true;
             buttonDelete.Enabled = _markedV != -1;
             Canvas.Cursor = _cursors[_comboIndex].Cursor;
