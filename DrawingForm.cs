@@ -201,11 +201,11 @@ namespace Graph
         }
 
 
-        private void Check(int u)
+        private void Check(int? u)
         {
-            if (u == -1)
+            if (u == -1 || u == null)
                 return;
-            var temp = _gState.GetPoint(u);
+            var temp = _gState.GetPoint((int)u);
             using Pen dashPen = new Pen(temp.c, penDiam) { DashPattern = new float[] { dashLength, dashLength } };
             using SolidBrush tempBrush = new SolidBrush(temp.c);
             using Graphics g = Graphics.FromImage(backImage);
@@ -216,10 +216,10 @@ namespace Graph
             g.DrawEllipse(dashPen, xCord, yCord, 2 * RADIUS, 2 * RADIUS);
             g.DrawString(u.ToString(), textFont, tempBrush, new Point(temp.p.X + _offset.X, temp.p.Y + _offset.Y), format);
         }
-        private void UnCheck(int u)
+        private void UnCheck(int? u)
         {
-            if (u == -1) return;
-            DrawVertex(u);
+            if (u == -1 || u == null) return;
+            DrawVertex((int)u);
         }
 
         private void RedrawAll()

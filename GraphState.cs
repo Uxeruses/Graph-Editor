@@ -115,6 +115,14 @@ namespace Graph
             _weights = tempWeights;
         }
 
+        public void ChangeWeight(int u, int v, int w)
+        {
+            if (!HasEdge(u, v)) return;
+            _weights[u, v] = w;
+            if (!_isDirected)
+                _weights[v, u] = w;
+        }
+
         public int? GetWeight(int u, int v)
         {
             return _weights[u, v];

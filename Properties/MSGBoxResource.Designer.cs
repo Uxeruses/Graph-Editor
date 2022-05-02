@@ -97,6 +97,15 @@ namespace GraphRemake.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zmień wagę.
+        /// </summary>
+        internal static string SEL_Add_Weight {
+            get {
+                return ResourceManager.GetString("SEL_Add_Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ruszaj.
         /// </summary>
         internal static string SEL_Cursor_Move {

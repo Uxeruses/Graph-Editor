@@ -32,6 +32,9 @@
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutRight = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxEdit = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.weightNumBox = new System.Windows.Forms.NumericUpDown();
+            this.confirmEdgeWeight = new System.Windows.Forms.Button();
             this.comboBoxCursors = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -48,6 +51,8 @@
             this.tableLayoutMain.SuspendLayout();
             this.tableLayoutRight.SuspendLayout();
             this.groupBoxEdit.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weightNumBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBoxLang.SuspendLayout();
             this.groupBoxIE.SuspendLayout();
@@ -72,12 +77,42 @@
             // groupBoxEdit
             // 
             resources.ApplyResources(this.groupBoxEdit, "groupBoxEdit");
+            this.groupBoxEdit.Controls.Add(this.tableLayoutPanel2);
             this.groupBoxEdit.Controls.Add(this.comboBoxCursors);
             this.groupBoxEdit.Controls.Add(this.buttonClear);
             this.groupBoxEdit.Controls.Add(this.buttonDelete);
             this.groupBoxEdit.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxEdit.Name = "groupBoxEdit";
             this.groupBoxEdit.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.weightNumBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.confirmEdgeWeight, 1, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // weightNumBox
+            // 
+            resources.ApplyResources(this.weightNumBox, "weightNumBox");
+            this.weightNumBox.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.weightNumBox.Minimum = new decimal(new int[] {
+            -2147483648,
+            0,
+            0,
+            -2147483648});
+            this.weightNumBox.Name = "weightNumBox";
+            // 
+            // confirmEdgeWeight
+            // 
+            resources.ApplyResources(this.confirmEdgeWeight, "confirmEdgeWeight");
+            this.confirmEdgeWeight.Name = "confirmEdgeWeight";
+            this.confirmEdgeWeight.UseVisualStyleBackColor = true;
+            this.confirmEdgeWeight.Click += new System.EventHandler(this.confirmEdgeWeight_Click);
             // 
             // comboBoxCursors
             // 
@@ -191,6 +226,8 @@
             this.tableLayoutMain.ResumeLayout(false);
             this.tableLayoutRight.ResumeLayout(false);
             this.groupBoxEdit.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.weightNumBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBoxLang.ResumeLayout(false);
             this.groupBoxIE.ResumeLayout(false);
@@ -217,5 +254,8 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.ComboBox comboBoxCursors;
+        private System.Windows.Forms.NumericUpDown weightNumBox;
+        private System.Windows.Forms.Button confirmEdgeWeight;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

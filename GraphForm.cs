@@ -29,7 +29,6 @@ namespace Graph
         private int _comboIndex;
         private List<CursorSelect> _cursors;
         private Point _offset;
-        private IGraph<int>? _graph;
         private StartPosition _startPosition;
         private (int x, int y) _graphStartPostion;
         private int _graphGapValue;
@@ -37,47 +36,8 @@ namespace Graph
         private int _bezierMultiply;
         private int _arrowLength;
         private int _arrowWidth;
+        private int?[] _edgePoints;
 
-        public GraphForm(IGraph<double> graph) : this()
-        {
-            if(graph.Directed)
-            {
-                var temp = new DiGraph<int>(graph.VertexCount);
-                for (int i = 0; i < graph.VertexCount; i++)
-                {
-                    foreach (var edge in graph.OutEdges(i))
-                    {
-                        temp.AddEdge(edge.From, edge.To, (int)edge.weight);
-                    }
-                }
-                _graph = temp;
-                _isDirected = true;
-            }
-            else
-            {
-                var temp = new Graph<int>(graph.VertexCount);
-                for (int i = 0; i < graph.VertexCount; i++)
-                {
-                    foreach (var edge in graph.OutEdges(i))
-                    {
-                        temp.AddEdge(edge.From, edge.To, (int)edge.weight);
-                    }
-                }
-                _graph = temp;
-                _isDirected=false;
-            }
-            _gState.UpdateDirect(_isDirected);
-            SetGraph();
-        }
-
-
-        public GraphForm(IGraph<int> graph) : this()
-        {
-            _graph = graph;
-            _isDirected = graph.Directed;
-            _gState.UpdateDirect(_isDirected);
-            SetGraph();
-        }
         public GraphForm()
         {
             _arrowLength = 10;
@@ -86,11 +46,14 @@ namespace Graph
             
             _graphStartPostion = (50, 50);
             _graphGapValue = 150;
+            _edgePoints = new int?[2];
+            _isDirected = false;
             _startPosition = Graph.StartPosition.Square;
-            _graph = null;
+
             _cursors = new List<CursorSelect>();
             _cursors.Add(new CursorSelect(Cursors.Cross, 0));
             _cursors.Add(new CursorSelect(Cursors.NoMove2D, 1));
+            _cursors.Add(new CursorSelect(Cursors.Default, 2));
 
             var culture = new CultureInfo("pl-PL");
             CultureInfo.DefaultThreadCurrentCulture = culture;
@@ -118,46 +81,6 @@ namespace Graph
                 g.Clear(bcgColor);
             }
             ConstructForm();
-        }
-
-        private void SetGraph()
-        {
-            if (_graph == null) return;
-            int n = _graph.VertexCount;
-            switch (_startPosition)
-            {
-                case Graph.StartPosition.Square:
-                    {
-                        Point p = new Point(_graphStartPostion.x, _graphStartPostion.y);
-
-                        int size = (int)Math.Ceiling(Math.Sqrt(n));
-
-                        for (int i = 0; i < n; i++)
-                        {
-                            _gState.AddVertex(p, drawColor);
-                            if ((i + 1) % size == 0)
-                            {
-                                p.Y += _graphGapValue;
-                                p.X = _graphStartPostion.x;
-                            }
-                            else
-                            {
-                                p.X += _graphGapValue;
-                            }
-                        }
-                        break;
-                    }
-            }
-            for (int i = 0; i < n; i++)
-            {
-                foreach (var neigh in _graph.OutNeighbors(i))
-                {
-                    _gState.AddEdge(i, neigh, _graph.GetEdgeWeight(i, neigh));
-                }
-
-            }
-
-            RedrawAll();
         }
 
         private void Form_SizeChanged(object sender, EventArgs e)
@@ -218,9 +141,54 @@ namespace Graph
                         }
                         break;
                     }
+                case 2:
+                    {
+                        switch(e.Button)
+                        {
+                            case MouseButtons.Right:
+                                {
+                                    ControlEdgeWeight(e);
+                                    break;
+                                }
+                        }
+                        break;
+                    }
             }
 
         }
+
+        private void ControlEdgeWeight(MouseEventArgs e)
+        {
+            UnCheck(_markedV);
+            _markedV = -1;
+            Point calibrated = new Point(e.Location.X - _offset.X, e.Location.Y - _offset.Y);
+            int toCheck = _gState.Check(calibrated, 1);
+            if (toCheck == -1)
+                return;
+            if (_edgePoints[0] == null)
+            {
+                _edgePoints[0] = toCheck;
+                Check(toCheck);
+            }
+            else if(_edgePoints[1] == null && toCheck != _edgePoints[0])
+            {
+                if (!_gState.HasEdge((int)_edgePoints[0], toCheck))
+                    return;
+                _edgePoints[1] = toCheck;
+                Check(toCheck);
+                confirmEdgeWeight.Enabled = true;
+                weightNumBox.Enabled = true;
+            }
+            else if(_edgePoints[1] != null && toCheck != _edgePoints[1])
+            {
+                UnCheck(_edgePoints[0]);
+                _edgePoints[0] = _edgePoints[1];
+                _edgePoints[1] = toCheck;
+                Check(_edgePoints[1]);
+            }
+            Canvas.Refresh();
+        }
+        
 
         private void MoveBitMap(MouseEventArgs e)
         {
@@ -244,10 +212,7 @@ namespace Graph
                     {
                         _gState.AddEdge(_markedV, pos);
                     }
-                    ResetBackground();
-                    RedrawEdges();
-                    RedrawVertices();
-                    Canvas.Refresh();
+                    RedrawAll();
                     return;
                 }
             }
@@ -324,8 +289,17 @@ namespace Graph
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                Point temp;
-                if (_gState.Deserialize(fileDialog.FileName, out temp))
+                Point temp = new Point(0, 0);
+                bool control;
+                try
+                {
+                    control = _gState.Deserialize(fileDialog.FileName, out temp);
+                }
+                catch (Exception)
+                {
+                    control=false;
+                }
+                if (control)
                 {
                     _offset = temp;
                     _markedV = -1;
@@ -382,7 +356,6 @@ namespace Graph
             _lP = null;
         }
 
-        //TODO: Repair case when user starts middleclick outside vertex
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             switch (_comboIndex)
@@ -501,6 +474,8 @@ namespace Graph
                             return GraphRemake.Properties.MSGBoxResource.SEL_Cursor_Selecet;
                         case 1:
                             return GraphRemake.Properties.MSGBoxResource.SEL_Cursor_Move;
+                        case 2:
+                            return GraphRemake.Properties.MSGBoxResource.SEL_Add_Weight;
                     }
                     return string.Empty;
                 }
@@ -515,8 +490,23 @@ namespace Graph
         private void comboBoxCursors_SelectedIndexChanged(object sender, EventArgs e)
         {
             var cursor = (CursorSelect)comboBoxCursors.SelectedItem;
+            if(comboBoxCursors.SelectedIndex == 2)
+            {
+                _markedV = -1;
+                RedrawAll();
+            }
             Canvas.Cursor = cursor.Cursor;
             _comboIndex = comboBoxCursors.SelectedIndex;
+        }
+
+        private void confirmEdgeWeight_Click(object sender, EventArgs e)
+        {
+            _gState.ChangeWeight((int)_edgePoints[0], (int)_edgePoints[1], (int)weightNumBox.Value);
+            _edgePoints[0] = null;
+            _edgePoints[1] = null;
+            confirmEdgeWeight.Enabled = false;
+            weightNumBox.Enabled = false;
+            RedrawAll();
         }
     }
 }
